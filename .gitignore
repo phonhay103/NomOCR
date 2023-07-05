@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 wandb/
-nomscript2/
+nomscript2/all_images/
