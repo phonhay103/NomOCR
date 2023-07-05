@@ -1,5 +1,6 @@
 # NomScript
-Dataset: https://www.kaggle.com/datasets/nhay103/nomscript2
 
-Unzip: `unzip archive.zip -d nomscript2`
+Roboflow: https://app.roboflow.com/nhay/nom-script-labelling/overview
+Kaggle: https://www.kaggle.com/datasets/nhay103/nomscript2
 
+Unzip: `unzip -j all_images.zip -d all_images`
