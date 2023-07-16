@@ -4,7 +4,6 @@ from PIL import Image
 import torchvision.transforms as TF
 import pathlib
 from tqdm import tqdm
-import numpy as np
 
 class ImagePathDataset(torch.utils.data.Dataset):
     def __init__(self, files, transforms=None):
@@ -53,7 +52,6 @@ gan_loader = torch.utils.data.DataLoader(gan_dataset,
     drop_last=False
 )
 
-ssim_values = []
 ssim_metric = []
 for filename, gan_image in tqdm(gan_loader):
     filename = filename[0]
@@ -61,9 +59,4 @@ for filename, gan_image in tqdm(gan_loader):
     gan_images = gan_image.repeat(len(real_images), 1, 1, 1).to(device)
     _ssim = ssim(gan_images, real_images, size_average=True, data_range=1)
     ssim_value = _ssim.cpu().numpy()
-    ssim_values.append(ssim_value)
     ssim_metric.append(f'{filename}\t{ssim_value}')
-
-ssim_metric.append(f'SSIM\t{np.mean(ssim_values)}')
-with open(log_path, 'w') as f:
-    f.write('\n'.join(ssim_metric))

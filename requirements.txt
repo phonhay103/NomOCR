@@ -1,0 +1,10 @@
+lpips
+pytorch-msssim
+torchmetrics
+tensorflow
+torch
+torchvision
+tqdm
+PyYAML
+matplotlib
+scikit-learn
