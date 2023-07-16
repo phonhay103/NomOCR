@@ -4,15 +4,18 @@ import random, string
 from tqdm import tqdm
 from PIL import Image
 
+CONFIG_PATH = 'data.yaml'
 IMAGES_PATH = 'train/images'
 LABELS_PATH = 'train/labels'
-OUTPUT_PATH = "all_images"
 
-with open('data.yaml', 'r') as file:
+OUTPUT_IMAGES_PATH = "all_images"
+OUTPUT_LABELS_PATH = 'all_images.txt'
+
+with open(CONFIG_PATH, 'r') as file:
     yaml_data = yaml.safe_load(file)
     names = yaml_data.get('names')
 
-os.makedirs(OUTPUT_PATH, exist_ok=True)
+os.makedirs(OUTPUT_IMAGES_PATH, exist_ok=True)
 
 label_files = os.listdir(LABELS_PATH)
 for label_file in tqdm(label_files):
@@ -37,10 +40,10 @@ for label_file in tqdm(label_files):
 
         random_string = ''.join(random.choices(string.ascii_letters, k=5))
         cropped_BB_name = f'{random_string}_{class_name}.jpg'
-        cropped_BB_path = os.path.join(OUTPUT_PATH, cropped_BB_name)
+        cropped_BB_path = os.path.join(OUTPUT_IMAGES_PATH, cropped_BB_name)
 
         cropped_BB = image.crop((x_min, y_min, x_max, y_max))
         cropped_BB.save(cropped_BB_path)
 
-        with open('all_images.txt', 'a') as file:
+        with open(OUTPUT_LABELS_PATH, 'a') as file:
             file.write(cropped_BB_name + '\t' + class_name + '\n')

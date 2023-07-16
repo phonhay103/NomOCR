@@ -1,5 +1,4 @@
 lpips
-pytorch-msssim
 torchmetrics
 tensorflow
 torch
