@@ -1,4 +1,4 @@
-# NomScript
+# NomOCR
 
 Roboflow: https://app.roboflow.com/nhay/nom-script-labelling/overview
 Kaggle: https://www.kaggle.com/datasets/nhay103/nomscript2
