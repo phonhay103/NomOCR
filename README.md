@@ -1,6 +1,6 @@
 # NomOCR
 
-Roboflow: https://app.roboflow.com/nhay/nom-script-labelling/overview
+Roboflow: https://app.roboflow.com/nhay/nom-ocr-cvpqv/overview
 
 Kaggle: https://www.kaggle.com/datasets/nhay103/nomscript2
 
